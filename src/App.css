@@ -2,37 +2,91 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Menu Toggler */
+.menu-toggler {
+  position: absolute; /* Positionne le menu sur la droite de l'écran */
+  top: 5rem;
+  right: 5rem;
+  /* Width & height modifie la taille du menu burger */
+  width: 5rem;
+  height: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1500; /* Permet au menu burger d'être toujours au dessus des autres div et donc d'être cliquable */
+  transition: transform 650ms ease-out;   
 }
 
-.App-link {
-  color: #61dafb;
+.menu-toggler.open {
+  transform: rotate(-45deg); /* Rotation on menu open */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bar {
+  background: linear-gradient(to right, #D6C8C8, #F2ECEC, #fd57bf14);
+  width: 100%;
+  height: 4px;
+  border-radius: .5rem;
 }
+
+.bar.half {
+  width: 50%;
+}
+
+.bar.start {
+  transform-origin: right;
+  transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57); /* Animation première barre */
+}
+
+.open .bar.start {
+  transform: rotate(-450deg) translateX(.8rem); /* Rotation première barre */
+}
+
+.bar.end {
+  align-self: flex-end; /* Décale la barre sur l'extrêmité droite */
+  transform-origin: left;
+  transition: transform 650ms cubic-bezier(0.54, -0.81, 0.57, 0.57); /* Animation dernière barre */
+}
+
+.open .bar.end {
+  transform: rotate(-450deg) translateX(-.8rem); /* Rotation dernière barre */ 
+}
+
+/* Top nav - styles à modifier */
+.top-nav {
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  /* Menu s'ouvre en partant de la droite */
+  right: -100vh;
+  top: 0;
+  /* menu s'ouvre en partant du haut */
+  /* right: 0;
+  top: -100vh; */
+  background-color: #E8BABA;
+  opacity: .7;
+  /* border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%; */
+  transition: all 950ms cubic-bezier(1,0,0,1);  
+}
+
+.top-nav.open {
+  /* top: 0; */
+  right: 0;
+  border-radius: initial;
+}
+
+/* Effet soulignage on hover */
+/* .nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1.5px;
+  background: #fff;
+  transition: width .3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  transition: width .3s;
+} */
