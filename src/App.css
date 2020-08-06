@@ -3,7 +3,7 @@
   color: #eee;
 }
 
-/* Menu Toggler */
+/* Menu Toggler - certains styles à modifier */
 .menu-toggler {
   position: absolute; /* Positionne le menu sur la droite de l'écran */
   top: 5rem;
