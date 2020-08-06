@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #eee;
 }
 
 /* Menu Toggler */
@@ -19,7 +20,7 @@
 }
 
 .menu-toggler.open {
-  transform: rotate(-45deg); /* Rotation on menu open */
+  transform: rotate(-45deg); /* Rotation on click menu open */
 }
 
 .bar {
@@ -52,7 +53,7 @@
   transform: rotate(-450deg) translateX(-.8rem); /* Rotation dernière barre */ 
 }
 
-/* Top nav - styles à modifier */
+/* Top nav - certains styles à modifier */
 .top-nav {
   width: 20%;
   height: 100vh;
@@ -77,16 +78,16 @@
 }
 
 /* Effet soulignage on hover */
-/* .nav-link::after {
-  content: '';
+.nav-link::after {
+  content: ''; /* créé la ligne */
   display: block;
-  width: 0;
+  width: 0; /* width 0 car on veut qu'elle soit inexistante au début */
   height: 1.5px;
   background: #fff;
-  transition: width .3s;
+  transition: width .3s; /* important pour un effet smooth */
 }
 
 .nav-link:hover::after {
-  width: 100%;
-  transition: width .3s;
-} */
+  width: 100%; /* on hover la ligne grandit à 100% de width */
+  transition: width .3s; /* important pour un effet smooth */
+} 
